@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This React app is a simple todo list. Allowing for items to be entered, updated , and deleted from a list. Showcasing CRUD elements.
+
+
+
+
 
 ## Available Scripts
 
