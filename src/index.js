@@ -2,16 +2,37 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import AboutUs from './components/AboutUs'
+import ContactUs from './components/ContactUs'
+import Blogs from "./components/Blogs";
+import NoMatch from "./components/NoMatch";
+// import News from './components/News'
+import BaseLayout from './components/layout/baseLayout'
+import Forms from './components/Forms'
+import LiftingState from "./components/liftingState";
+
+import {BrowserRouter,Switch,Route,Redirect} from 'react-router-dom'
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+  <BrowserRouter>
+    <BaseLayout>
+      <Switch>
+        <Redirect from="/AboutUs" to="/" />
+        <Route exact path="/" component={App} />
+        <Route path="/AboutUs" component={AboutUs} />
+        {/* <Route exact path="/News" component={News} /> */}
+        {/* <Route path="/News/:BlogID" component={Blogs} /> */}
+        <Route path="/ContactUs" component={ContactUs} />
+        <Route exact path="/Blogs" component={Blogs} />
+        <Route path="/Blogs/:BlogID" component={Blogs} />
+        <Route path="/Forms" component={Forms} />
+        <Route path="/LiftingState" component={LiftingState} />
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+        <Route component={NoMatch} />
+      </Switch>
+    </BaseLayout>
+  </BrowserRouter>,
+
+  document.getElementById("root")
+);
